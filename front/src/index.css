@@ -89,3 +89,31 @@ button {
   border-radius: 25px;
   background-color: #f1f1f1;
 }
+/* Form style */
+form {
+  margin-top: 30px;
+}
+form label {
+  margin-right: 20px;
+}
+form input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+/* modal email sended style */
+.modal {
+  position: absolute;
+  top: 10vh;
+  bottom: 10vh;
+  right: 10vw;
+  left: 10vw;
+  background-color: rgba(72, 14, 14, 0.9);
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

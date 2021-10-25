@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Loader from "./Loader";
 import CountryItem from "./CountryItem";
+import EmailForm from "./EmailForm";
 
 function Home() {
 
     const [loading, setLoading] = useState(true);
+    const [isSendEmailEnabled, setIsSendEmailEnabled] = useState(false);
     const [allCountries, setAllCountries] = useState([]);
     const [selectedCountries, setSelectedCountries] = useState([]);
 
@@ -20,6 +22,10 @@ function Home() {
         }
         setSelectedCountries(newSelectedCountries);
     };
+
+    const handleValidationButton = () => {
+        setIsSendEmailEnabled(true);
+    }
 
     useEffect(() => {
         //api request
@@ -65,12 +71,16 @@ function Home() {
 
             <div className='selected-country-list-container'>
                 {selectedCountries.length > 0
-                    ? <><h3>Vous avez séléctionné {selectedCountries.length} pays </h3><button>Valider la sélection</button></>
+                    ? <><h3>Vous avez séléctionné {selectedCountries.length} pays </h3><button onClick={ handleValidationButton }>Valider la sélection</button></>
                     : <h3>Vous n'avez séléctionné aucun pays </h3>
                 }
 
             </div>
-
+            {
+                isSendEmailEnabled?
+                    <EmailForm />
+                    : ''
+            }
         </div>
     );
 }
