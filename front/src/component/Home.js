@@ -1,11 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import Loader from "./Loader";
+import CountryItem from "./CountryItem";
 
 function Home() {
 
     const [loading, setLoading] = useState(true);
     const [allCountries, setAllCountries] = useState([]);
     const [selectedCountries, setSelectedCountries] = useState([]);
+
+    /* handle country selection */
+    const handleToggle = (id) => () => {
+        const currentIndex = selectedCountries.indexOf(id);
+        const newSelectedCountries = [...selectedCountries];
+
+        if (currentIndex === -1) {
+            newSelectedCountries.push(id);
+        } else {
+            newSelectedCountries.splice(currentIndex, 1);
+        }
+        setSelectedCountries(newSelectedCountries);
+    };
 
     useEffect(() => {
         //api request
@@ -34,11 +48,30 @@ function Home() {
         )
     }
     return (
-            <div className="home-container">
-                Choisissez un pays dans cette liste :
+        <div className="home-container">
+            <h1>Choisissez un ou plusieurs pays dans cette liste :</h1>
+            <div className='country-list-container'>
+                {
+                    allCountries.map((country) => {
+                        return <CountryItem
+                            key={country.id}
+                            country={country}
+                            handleToggle = { handleToggle }
+                            selected = { selectedCountries.includes(country.id) }
+                        />
+                    })
+                }
+            </div>
 
+            <div className='selected-country-list-container'>
+                {selectedCountries.length > 0
+                    ? <><h3>Vous avez séléctionné {selectedCountries.length} pays </h3><button>Valider la sélection</button></>
+                    : <h3>Vous n'avez séléctionné aucun pays </h3>
+                }
 
             </div>
+
+        </div>
     );
 }
 
