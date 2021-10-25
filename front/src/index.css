@@ -11,3 +11,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* Loader css */
+.loader-full-screen {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #61dafb;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#earth {
+  width: 300px;
+  height: 300px;
+  background: url(https://thumbs.werkaandemuur.nl/1/0e6fbd25915b44f13aedaef55aa331c2/817x600/thumbnail/fit.jpg);
+  border-radius: 50%;
+  background-size: 610px;
+  box-shadow: inset 8px 36px 80px 36px rgba(0, 0, 0, 0.5), inset -6px 0 12px 4px rgba(255, 255, 255, 0.3);
+  animation-name: rotate;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 12s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+@keyframes rotate {
+  0% {
+    background-position: 0px 0px;
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    background-position: 610px 0px;
+    transform: rotate(0deg);
+  }
+}
+
+/* Home css */
+.home-container {
+  padding: 50px;
+  min-height: 100vh;
+  background-color: #61dafb;
+}
