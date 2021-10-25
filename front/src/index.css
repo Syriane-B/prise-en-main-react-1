@@ -55,8 +55,37 @@ code {
 }
 
 /* Home css */
+button {
+  margin: 2px;
+  padding: 0 7px;
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+  border-radius: 25px;
+  background-color: #773434;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
 .home-container {
   padding: 50px;
   min-height: 100vh;
   background-color: #61dafb;
+}
+.country-list-container {
+  background-color: antiquewhite;
+  padding: 10px;
+  border-radius: 5px;
+}
+.chip {
+  cursor: pointer;
+  display: inline-block;
+  margin: 2px;
+  padding: 0 7px;
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
 }
